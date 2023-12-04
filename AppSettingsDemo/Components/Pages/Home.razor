@@ -1,7 +1,27 @@
 ﻿@page "/"
+@inject IConfiguration _config;
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
-Welcome to your new app.
+<p>
+My Main Setting : @myMainSetting <br/>
+
+My Complex Sub Setting : @myComplexSubSetting <br/>
+
+My Comlex Decimal Setting : @myComplexSubDecimalSetting
+</p>
+
+@code{
+    string myMainSetting = "";
+    string myComplexSubSetting = "";
+    decimal myComplexSubDecimalSetting;
+
+    protected override void OnInitialized()
+    {
+        myMainSetting = _config.GetValue<string>("MyMainSettings");
+        myComplexSubSetting = _config.GetValue<string>("MyComplexMainSettings:MySubSettings");
+        myComplexSubDecimalSetting = _config.GetValue<decimal>("MyComplexMainSettings:MySubDecimalSettings");
+    }
+}
