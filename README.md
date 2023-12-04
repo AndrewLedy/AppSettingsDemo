@@ -16,3 +16,7 @@ This solution is based on .Net Core 8 and latest at the time when I am working o
 
 That is AppSettings.json is out last place to look at.
 However, this can be flipped which I will be practising on this. 
+
+# Commit 1 details.
+
+- Practice of AppSettings.json
